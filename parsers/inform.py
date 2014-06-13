@@ -1,16 +1,12 @@
 from baseparser import BaseParser
 from BeautifulSoup import BeautifulSoup
 
-# DATE_FORMAT = '%-d. %B %Y'
+DATE_FORMAT = '%-d. %B %Y'
 
 class InformationParser(BaseParser):
-    # Doesn't work; returns empty list
-    feeder_pat = '^http://www.information.dk/\d+/'  # ?(\w+)
-    feeder_base = 'http://www.information.dk'
+    feeder_pat =    '^http://www.information.dk/(\w+/)?\d+$'
+    feeder_pages =  ['http://www.information.dk']
 
-    # Works
-    # python parsers/test_parser.py inform.InformationParser
-    #     http://www.information.dk/500604
     def _parse(self, html):
         """Retrieve and serve the required fields to create an entry."""
         soup = BeautifulSoup(html,
