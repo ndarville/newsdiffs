@@ -1,4 +1,6 @@
 /articles
+/env
+/venv
 
 *~
 *.py[co]
